@@ -9,10 +9,10 @@
 @val @return(nullable)
 external querySelector: string => option<Dom.element> = "document.querySelector"
 
-@module("preact")
-@deprecated(
-  "ReactDOM.render is no longer supported in React 18. Use ReactDOM.Client.createRoot instead."
-)
+@module("preact/compat")
+// @deprecated(
+//   "ReactDOM.render is no longer supported in React 18. Use ReactDOM.Client.createRoot instead."
+// )
 external render: (Preact.element, Dom.element) => unit = "render"
 
 module Client = {
@@ -24,23 +24,23 @@ module Client = {
     @send external unmount: (t, unit) => unit = "unmount"
   }
 
-  @module("preact")
+  @module("preact/compat")
   external createRoot: Dom.element => Root.t = "createRoot"
 
-  @module("preact")
+  @module("preact/compat")
   external hydrateRoot: (Dom.element, Preact.element) => Root.t = "hydrateRoot"
 }
 
-@module("preact")
+@module("preact/compat")
 @deprecated(
   "ReactDOM.hydrate is no longer supported in React 18. Use ReactDOM.Client.hydrateRoot instead."
 )
 external hydrate: (Preact.element, Dom.element) => unit = "hydrate"
 
-@module("preact")
+@module("preact/compat")
 external createPortal: (Preact.element, Dom.element) => Preact.element = "createPortal"
 
-@module("preact")
+@module("preact/compat")
 @deprecated(
   "ReactDOM.unmountComponentAtNode is no longer supported in React 18. Use ReactDOM.Client.Root.unmount instead."
 )
@@ -1095,11 +1095,11 @@ module Props = {
   }
 }
 
-@variadic @module("preact")
+@variadic @module("preact/compat")
 external createElement: (string, ~props: domProps=?, array<Preact.element>) => Preact.element =
   "createElement"
 
-@variadic @module("preact")
+@variadic @module("preact/compat")
 external createDOMElementVariadic: (
   string,
   ~props: domProps=?,

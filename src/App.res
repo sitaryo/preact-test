@@ -8,9 +8,9 @@ let make = () => {
       {Preact.string("This is a simple template for a Vite project using ReScript & Tailwind CSS.")}
     </p>
     <h2 className="text-2xl font-semibold mt-5"> {Preact.string("Fast Refresh Test")} </h2>
-    <button onClick={_ => setCount(count => count + 1)}>
+    <Button onClick={_ => setCount(count => count + 1)}>
       {Preact.string(`count is ${count->Int.toString}`)}
-    </button>
+    </Button>
     <p>
       {Preact.string("Edit ")}
       <code> {Preact.string("src/App.res")} </code>
